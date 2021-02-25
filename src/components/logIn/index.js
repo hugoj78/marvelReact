@@ -31,12 +31,10 @@ const logUser = (e, formState, setErrorMessage, history, setIsToken) => {
 
 const Login = ({history, setIsToken}) => {
 
-  console.log('login ' + setIsToken)
-
   useEffect(() => {
     const token = localStorage.getItem('token');
-    if (token) {
-      history.push('/home')
+    if (!token) {
+      history.push('/')
     }
   })
 

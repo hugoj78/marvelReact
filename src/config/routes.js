@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 
 import Login from '../components/logIn'
 import Characters from '../components/characters'
-import Home from '../components/home'
 import HeaderLogOut from '../components/headerLogOut'
 
 import PrivateRoute from '../utils/privateRoute'
@@ -20,7 +19,6 @@ const Routes = () => {
     <Switch>
       <Route exact path='/' component={(props) => <Login setIsToken={setIsToken} {...props}/>} />
       <PrivateRoute exact path='/characters' component={Characters} />
-      <PrivateRoute exact path='/home' component={Home}/>
       <Route render={() => <Redirect to='/' />} />
     </Switch>
     </Router>

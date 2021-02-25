@@ -1,14 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import styled from 'styled-components'
 import { useHistory } from 'react-router-dom';
 
 
 const HeaderLogOut = ({isToken, setIsToken}) => {
   const history = useHistory()
-
-  // useEffect(() => {
-  //   setIsToken(localStorage.getItem('token'))
-  // }, [isToken])
 
   const handleLogOut = () => {
     localStorage.removeItem('token')
