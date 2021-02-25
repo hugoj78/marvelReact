@@ -11,13 +11,13 @@ const Characters = () => {
 
   const decrease = () => {
     if (offSet.numPage > 1) {
-      setOffSet({...offSet, number: offSet.number - 15, numPage: offSet.numPage - 1})
+      setOffSet({...offSet, number: offSet.number - 16, numPage: offSet.numPage - 1})
     }
   }
 
   const increase = () => {
     if (offSet.numPage < 100) {
-      setOffSet({...offSet, number: offSet.number + 15, numPage: offSet.numPage + 1})
+      setOffSet({...offSet, number: offSet.number + 16, numPage: offSet.numPage + 1})
     }
   }
 
@@ -29,7 +29,7 @@ const Characters = () => {
         'apikey': process.env.REACT_APP_MARVEL_PUBLIC_KEY,
         'ts': process.env.REACT_APP_MARVEL_TS,
         'hash': process.env.REACT_APP_MARVEL_HASH_KEY,
-        'limit': 15,
+        'limit': 16,
         'offset': offSet.number
       }
     }).then(res => {
