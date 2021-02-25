@@ -1,18 +1,17 @@
-import React from 'react';
-
-import {BrowserRouter as Router} from 'react-router-dom';
+import React from 'react'
 import AppRoute from './config/routes'
+
+import { ThemeProvider } from 'styled-components'
+import { theme } from './config/theme'
 
 function App() {
   return (
-    <div className="App">
-
-      <Router>
-        <AppRoute/>
-      </Router>
-
+    <div className='App'>
+      <ThemeProvider theme={theme}>
+        <AppRoute />
+      </ThemeProvider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
