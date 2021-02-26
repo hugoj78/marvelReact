@@ -50,7 +50,6 @@ const Search = () => {
   return (
     <Container>
       <h1>Search Page</h1>
-
       <form onClick={search}>
         <input 
         type='text'
@@ -58,7 +57,6 @@ const Search = () => {
         onChange={(e) => setSearchText(e.target.value)}/>
         <button type='submit'>Search</button>
       </form>
-
 
       {data[0] ? (
         <div>
@@ -77,11 +75,8 @@ const Search = () => {
       ) : (
         <RetryContainer>
           <ParagrapheContainer>No results</ParagrapheContainer>
-          <ButtonContainer onClick={getResultsSearch}>Retry</ButtonContainer>
         </RetryContainer>
       )}
-
-    
     </Container>
   );
 };
