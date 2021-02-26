@@ -1,25 +1,36 @@
 import React from 'react';
 import styled from 'styled-components'
+import {Link} from 'react-router-dom'
 
-const ShowAllCharacters = ({dataApi, offSet, increase, decrease}) => {
+const ShowAllCharacters = ({dataApi, offSet, increase, decrease, getCharacters}) => {
   return (
     <Container>
       <TitleContainer>Characters Page</TitleContainer>
-      <DataContainer>
-        {dataApi.map(data => (
-          <ItemContainer key={data.name}>
-            <ImgContainer src={`${data.thumbnail.path}.${data.thumbnail.extension}`}  alt={data.name} />
-            <ParagrapheContainer>{data.name}</ParagrapheContainer>
-            <ButtonContainer onClick=''>Show</ButtonContainer>
-          </ItemContainer>
+      {dataApi[0] ? (
+        <div>
+          <DataContainer>
+            {dataApi.map(data => (
+              <ItemContainer key={data.name}>
+                <ImgContainer src={`${data.thumbnail.path}.${data.thumbnail.extension}`}  alt={data.name} />
+                <ParagrapheContainer>{data.name}</ParagrapheContainer>
+                <Link to={`/characters/${data.id}`}>
+                  <ButtonContainer onClick={() => {}}>Show</ButtonContainer>
+                </Link>
+              </ItemContainer>
+            ))}
+          </DataContainer>
           
-        ))}
-      </DataContainer>
-      <PaginationContainer>
-        <ButtonContainer onClick={decrease}> - </ButtonContainer>
-        <ParagrapheContainer>{offSet.numPage}</ParagrapheContainer>
-        <ButtonContainer onClick={increase}> + </ButtonContainer>
-      </PaginationContainer>
+        <PaginationContainer>
+          <ButtonContainer onClick={decrease}> - </ButtonContainer>
+          <ParagrapheContainer>{offSet.numPage}</ParagrapheContainer>
+          <ButtonContainer onClick={increase}> + </ButtonContainer>
+        </PaginationContainer>
+      </div>
+      ) : (
+        <RetryContainer>
+          <p>Pas de characters</p>
+          <button onClick={getCharacters}>Retry</button>
+        </RetryContainer>)}
     </Container>
   )
 }
@@ -57,5 +68,9 @@ const ButtonContainer = styled.button`
 `
 
 const ParagrapheContainer = styled.p``
+
+const RetryContainer = styled.div`
+  text-align: center;
+`
 
 export default ShowAllCharacters;
