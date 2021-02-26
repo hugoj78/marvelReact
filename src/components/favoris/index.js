@@ -11,7 +11,7 @@ const Favoris = () => {
     const fav = JSON.parse(localStorage.getItem('favorites'))
 
     setTimeout(() => {
-      setDataFav(fav)
+      setDataFav(fav ? fav : [])
       setIsLoading(false)
     }, 1000)
 

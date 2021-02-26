@@ -8,6 +8,7 @@ const HeaderLogOut = ({isToken, setIsToken}) => {
 
   const handleLogOut = () => {
     localStorage.removeItem('token')
+    localStorage.removeItem('favorites')
     setIsToken('')
     history.push('/')
   }
